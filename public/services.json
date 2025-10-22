@@ -1,0 +1,74 @@
+[
+   {
+   "serviceId": 1,
+   "serviceName": "Winter Coat Fitting for Dogs",
+   "providerName": "PawCare Studio",
+   "providerEmail": "info@pawcare.com",
+   "price": 25,
+   "rating": 4.9,
+   "slotsAvailable": 4,
+   "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+   "image": "https://ibb.co.com/7tYspPmt",
+   "category": "Clothing"
+   },
+   {
+   "serviceId": 2,
+   "serviceName": "Winter Grooming & Paw Treatment",
+   "providerName": "CozyPets Grooming",
+   "providerEmail": "hello@cozypets.com",
+   "price": 30,
+   "rating": 4.8,
+   "slotsAvailable": 3,
+   "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+   "image": "https://ibb.co.com/HTx63Q6S",
+   "category": "Grooming"
+   },
+   {
+   "serviceId": 3,
+   "serviceName": "Heated Bed Rentals",
+   "providerName": "WarmNest",
+   "providerEmail": "rentals@warmnest.com",
+   "price": 12,
+   "rating": 4.6,
+   "slotsAvailable": 6,
+   "description": "Short-term heated beds for elderly or small pets sensitive to cold.",
+   "image": "https://ibb.co.com/4ZXR0Qmf",
+   "category": "Comfort"
+   },
+   {
+   "serviceId": 4,
+   "serviceName": "Winter Nutrition Consult",
+   "providerName": "VetWise Clinic",
+   "providerEmail": "care@vetwise.com",
+   "price": 40,
+   "rating": 4.7,
+   "slotsAvailable": 2,
+   "description": "Diet plan and fatty-acid supplements to keep pets healthy during winter.",
+   "image": "https://ibb.co.com/QFQVvDDb",
+   "category": "Nutrition"
+   },
+   {
+   "serviceId": 5,
+   "serviceName": "Booties & Paw Protection Fitting",
+   "providerName": "PawShield",
+   "providerEmail": "support@pawshield.com",
+   "price": 18,
+   "rating": 4.5,
+   "slotsAvailable": 5,
+   "description": "Measure and fit winter booties and anti-ice balms for sensitive paws.",
+   "image": "https://ibb.co.com/bM0w86Js",
+   "category": "Accessories"
+   },
+   {
+   "serviceId": 6,
+   "serviceName": "Emergency Winter Checkup",
+   "providerName": "QuickVet",
+   "providerEmail": "help@quickvet.com",
+   "price": 50,
+   "rating": 4.9,
+   "slotsAvailable": 1,
+   "description": "Rapid checkup for frostbite, hypothermia risk, and urgent winter injuries.",
+   "image": "https://ibb.co.com/wh8pXRFj",
+   "category": "Health"
+   }
+]
