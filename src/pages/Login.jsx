@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { nav } from "framer-motion/client";
@@ -11,6 +11,9 @@ const Login = () => {
 
   const { signInUser } = use(AuthContext);
   const navigate = useNavigate();
+    const location = useLocation();
+  console.log(location);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,7 +33,7 @@ const Login = () => {
           position: "top-center",
         });
         e.target.reset();
-        navigate("/");
+         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         setError(error.message);
@@ -45,7 +48,7 @@ const Login = () => {
         toast.success("Google Login successful", { position: "top-center" });
         console.log(result.user);
         
-        navigate("/");
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((err) => setError(err.message));
   };

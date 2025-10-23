@@ -1,12 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 const ServiceCard = ({ service }) => {
   console.log(service);
+  const navigate = useNavigate();
 
   const { serviceName, image, rating, price } = service;
   console.log(image);
   
-
   return (
     <div>
       <div
@@ -28,7 +29,9 @@ const ServiceCard = ({ service }) => {
             <span className="text-gray-600">{rating.toFixed(1)}</span>
           </div>
           <p className="text-gray-800 font-semibold mb-4">${price}</p>
-          <button className="bg-[#ff3600] text-white px-4 py-2 rounded-lg w-full hover:bg-[#e02f00] transition-colors cursor-pointer">
+          <button 
+            onClick={() => navigate(`/services/${service.serviceId}`)}
+            className="bg-[#ff3600] text-white px-4 py-2 rounded-lg w-full hover:bg-[#e02f00] transition-colors cursor-pointer">
             View Details
           </button>
         </div>
