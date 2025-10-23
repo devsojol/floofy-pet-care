@@ -1,7 +1,26 @@
 import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
+import { use } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+  const handleLogOut = () => {
+    console.log("User trying to log Out");
+    logOut()
+      .then(() => {
+        toast.success("Sign-out successful.", {
+          position: "top-center",
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message, {
+          position: "top-center",
+        });
+      });
+  };
+
   const navLinks = (
     <>
       <li>
@@ -16,7 +35,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar py-4 md:px-12 sticky top-0 h-fit bg-white z-10 ">
+    <div className="navbar py-4 md:px-12 sticky top-0 h-fit bg-white z-10 shadow">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,14 +74,34 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
         <div className="avatar">
           <div className="w-14 rounded-full">
-            <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
+            {user && user.photoURL ? (
+              <img
+                src={user.photoURL}
+                alt={user.displayName || "User"}
+                title={user.displayName || "User"}
+                className="cursor-pointer"
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
-        <Link 
-          className="bg-[#ff3600] px-8 md:px-12 py-3 text-white font-semibold rounded-4xl text-xl cursor-pointer"
-          to="/login">
-          Login
-        </Link>
+
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="bg-[#403F3F] px-8 md:px-12 py-3 text-white font-semibold text-xl rounded-4xl cursor-pointer"
+          >
+            LogOut
+          </button>
+        ) : (
+          <Link
+            className="bg-[#ff3600] px-8 md:px-12 py-3 text-white font-semibold rounded-4xl text-xl cursor-pointer"
+            to="/login"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

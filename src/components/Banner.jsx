@@ -13,7 +13,7 @@ const Banner = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto py-4">
       <Swiper
         spaceBetween={50}
         slidesPerView={1}

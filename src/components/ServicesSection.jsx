@@ -12,7 +12,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto py-12">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
         Popular Winter Care Services
       </h2>
