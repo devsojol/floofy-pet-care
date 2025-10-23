@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
@@ -58,9 +58,11 @@ const Navbar = () => {
             <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
           </div>
         </div>
-        <button className="bg-[#ff3600] px-8 md:px-12 py-3 text-white font-semibold rounded-4xl text-xl cursor-pointer">
+        <Link 
+          className="bg-[#ff3600] px-8 md:px-12 py-3 text-white font-semibold rounded-4xl text-xl cursor-pointer"
+          to="/login">
           Login
-        </button>
+        </Link>
       </div>
     </div>
   );
