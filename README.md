@@ -57,6 +57,7 @@ https://floofy-pet-care.web.app/
 -  react-icons
 -  tailwindcss
 -  daisyui
+-  Aos
 
 
 # React + Vite

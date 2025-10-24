@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 const ServiceDetails = () => {
   const { id } = useParams();
   const [service, setService] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,7 +14,8 @@ const ServiceDetails = () => {
       .then((data) =>
         setService(data.find((s) => s.serviceId === parseInt(id)))
       )
-      .catch((err) => console.error("Error loading service:", err));
+      .catch((err) => console.error("Error loading service:", err))
+      .finally(() => setLoading(false));
   }, [id]);
 
   // Handle booking form submission
@@ -30,7 +32,7 @@ const ServiceDetails = () => {
   };
 
   if (!service)
-    return <p className="text-center py-10">Loading service details...</p>;
+    return <span className="loading loading-dots loading-xl tex-center"></span>
 
   return (
     <div className="container mx-auto px-4 py-12">
