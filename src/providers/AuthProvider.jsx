@@ -13,12 +13,13 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // 
 
+  // Create new user
   const createUser = (email, password, name, photoURL) => {
     return createUserWithEmailAndPassword(auth, email, password).then(
       async (result) => {
         const user = result.user;
-        // update profile
         await updateProfile(user, { displayName: name, photoURL });
         setUser({ ...auth.currentUser });
         return auth.currentUser;
@@ -26,23 +27,30 @@ const AuthProvider = ({ children }) => {
     );
   };
 
+  // Sign in existing user
   const signInUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // Logout
   const logOut = () => signOut(auth);
 
+  // Listen for auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false); // 
     });
+
     return () => unsubscribe();
   }, []);
 
-  const userInfo = { user, setUser, createUser, signInUser, logOut };
+  const userInfo = { user, loading, setUser, createUser, signInUser, logOut };
 
   return (
-    <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={userInfo}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 
