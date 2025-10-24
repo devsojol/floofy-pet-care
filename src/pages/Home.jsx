@@ -3,6 +3,7 @@ import Banner from '../components/Banner';
 import ServicesSection from '../components/ServicesSection';
 import WinterCareTips from '../components/WinterCareTips';
 import ExpertVets from '../components/ExpertVets';
+import FeedBack from '../components/FeedBack';
 
 const Home = () => {
   return (
@@ -18,6 +19,9 @@ const Home = () => {
       </section>
       <section>
         <ExpertVets></ExpertVets>
+      </section>
+      <section>
+       <FeedBack></FeedBack>
       </section>
     </div>
   );
