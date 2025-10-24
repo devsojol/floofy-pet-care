@@ -1,3 +1,60 @@
+## Project Name : floofy  -Pet-care in winter
+
+
+## Project Purpose
+The main goal of this project is to create a user-friendly single-page web application where pet owners can find, view, and book winter care services for their pets.
+
+
+## Key Features
+
+###  Home Page
+- Beautiful hero slider (built with Swiper.js)
+- Popular Winter Care Services displayed from JSON data
+- Winter Care Tips for Pets (fake JSON data)
+- Meet Our Expert Vets
+- Customer feedBack section
+
+### Authentication
+- Firebase Authentication (Email/Password + Google Login)
+- Signup / Login / Logout system
+- Password validation:
+  - At least 6 characters  
+  - One uppercase letter  
+  - One lowercase letter  
+- Password toggle (eye icon)
+- Forgot password feature (functional)
+
+### Service Details Page
+- Protected route (only visible if user logged in)
+- Shows all service details
+- “Book Now” form with Name & Email fields  
+- On submit → success toast + form reset
+
+### My Profile Page
+- Displays user name, email, and photo  
+- **Update Profile** button (updates name & photo using `updateProfile()`)
+
+### Responsive Design
+- Fully responsive for mobile, tablet, and desktop
+- Minimalist and modern design with soft animations
+
+###  Functionality
+- SPA behavior (no reload errors)
+- Toast notifications for success and errors
+- Firebase environment variables stored securely in `.env`
+
+
+### NPM Packages Used
+-  firebase
+-  react-router-dom
+-  react-toastify
+-  swiper
+-  framer motion
+-  react-icons
+-  tailwindcss
+-  daisyui
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

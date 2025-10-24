@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { toast } from "react-toastify";
+import auth from "../firebase/firebase.config";
 
 const MyProfile = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const MyProfile = () => {
   const handleUpdateProfile = (e) => {
     e.preventDefault();
 
-    updateProfile(user, {
+    updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     })

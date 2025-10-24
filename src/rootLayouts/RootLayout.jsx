@@ -6,9 +6,15 @@ import Footer from '../components/Footer';
 const RootLayout = () => {
    return (
       <div className='px-4'>
-         <Navbar></Navbar>
-         <Outlet></Outlet>
-         <Footer></Footer>
+         <header>
+            <Navbar></Navbar>
+         </header>
+         <main>
+            <Outlet></Outlet>
+         </main>
+         <footer>
+            <Footer></Footer>
+         </footer>
       </div>
    );
 };

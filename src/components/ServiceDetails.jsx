@@ -50,7 +50,7 @@ const ServiceDetails = () => {
           />
           {/* Back to services button */}
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/services")}
             className="text-white bg-[#ff3600] border border-[#ff3600] py-3 w-1/2 rounded cursor-pointer mb-6 block mt-8"
           >
             ← Back to Services

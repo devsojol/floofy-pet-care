@@ -70,7 +70,7 @@ const Register = () => {
 
   return (
     <div className="flex justify-center mt-10">
-      <div className="card bg-base-100 shadow-2xl px-10 w-full max-w-md">
+      <div className="card bg-base-100 shadow-2xl px-10">
         <h1 className="text-4xl font-semibold text-center py-12 border-b border-gray-300">
           Register your account
         </h1>
@@ -112,7 +112,7 @@ const Register = () => {
               required
             />
             <span
-              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
+              className="absolute right-10 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
               onClick={() => setShowPassword(!showPassword)}
             >
               {showPassword ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
