@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { nav } from "framer-motion/client";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
 const Login = () => {
@@ -53,6 +53,20 @@ const Login = () => {
       .catch((err) => setError(err.message));
   };
 
+    // Forgot Password
+  const handleForgotPassword = () => {
+    const email = prompt("Enter your email to reset password:");
+    if (!email) return;
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("Password reset email sent! Check your inbox.", { position: "top-center" });
+      })
+      .catch((err) => {
+        toast.error(err.message, { position: "top-center" });
+      });
+  };
+
   return (
     <div className="flex justify-center mt-5">
       <div className="card bg-base-100 shrink-0 shadow-2xl px-10">
@@ -78,7 +92,7 @@ const Login = () => {
               required
             />
             <div>
-              <a className="link link-hover">Forgot password?</a>
+              <a onClick={handleForgotPassword} className="link link-hover">Forgot password?</a>
             </div>
             {error && (
               <p className="text-red-500 font-medium text-sm mt-2">{error}</p>
