@@ -5,14 +5,15 @@ import { toast } from "react-toastify";
 import { GoogleAuthProvider } from "firebase/auth";
 import { signInWithPopup } from "firebase/auth";
 import auth from "../firebase/firebase.config";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [passError, setPassError] = useState("");
   const [checkboxError, setCheckboxError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
 
   // Google Sign-in
   const handleGoogleLogin = () => {
@@ -26,7 +27,7 @@ const Register = () => {
       .catch((err) => setError(err.message));
   };
 
-// password email sign up
+  // password email sign up
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -102,13 +103,21 @@ const Register = () => {
           />
 
           <label className="label">Password</label>
-          <input
-            type="password"
-            name="password"
-            className="input"
-            placeholder="Password"
-            required
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              className="input pr-10"
+              placeholder="Password"
+              required
+            />
+            <span
+              className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash size={16} /> : <FaEye size={16} />}
+            </span>
+          </div>
 
           {passError && <p className="text-red-500 mt-2">{passError}</p>}
           {error && <p className="text-red-500 mt-2">{error}</p>}
@@ -116,10 +125,13 @@ const Register = () => {
           <div className="flex items-center gap-2 mt-2">
             <input type="checkbox" name="checkbox" className="checkbox" />
             <span>
-              Accept our <Link className="font-semibold">Terms & Conditions</Link>
+              Accept our{" "}
+              <Link className="font-semibold">Terms & Conditions</Link>
             </span>
           </div>
-          {checkboxError && <p className="text-red-500 mt-2">{checkboxError}</p>}
+          {checkboxError && (
+            <p className="text-red-500 mt-2">{checkboxError}</p>
+          )}
 
           <button className="btn btn-neutral mt-4 w-full">Register</button>
 
