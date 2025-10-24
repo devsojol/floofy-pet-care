@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../rootLayouts/RootLayout";
 import Home from "../pages/Home";
-import Services from "../pages/Services";
 import MyProfile from "../pages/MyProfile";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
@@ -25,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
          path:"/my-profile",
-         element:<MyProfile></MyProfile>
+         element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
       },
       {
          path:"/login",
