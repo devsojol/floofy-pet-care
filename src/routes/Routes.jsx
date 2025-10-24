@@ -6,35 +6,43 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import ServiceDetails from "../components/ServiceDetails";
 import PrivateRoute from "../providers/PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<RootLayout></RootLayout>,
-    children:[
+    element: <RootLayout></RootLayout>,
+    children: [
       {
-         path:"/",
-         element:<Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-         path:"/services/:id",
-         element:<PrivateRoute>
-          <ServiceDetails></ServiceDetails>
-         </PrivateRoute>
+        path: "/services/:id",
+        element: (
+          <PrivateRoute>
+            <ServiceDetails></ServiceDetails>
+          </PrivateRoute>
+        ),
       },
       {
-         path:"/my-profile",
-         element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+        path: "/my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
       {
-         path:"/login",
-         element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-         path:"/register",
-         element:<Registration></Registration>
+        path: "/register",
+        element: <Registration></Registration>,
       },
     ],
+    errorElement: <ErrorPage></ErrorPage>,
   },
 ]);
 export default router;
