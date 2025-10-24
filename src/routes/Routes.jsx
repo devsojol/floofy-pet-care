@@ -7,6 +7,8 @@ import Registration from "../pages/Registration";
 import ServiceDetails from "../components/ServiceDetails";
 import PrivateRoute from "../providers/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import Services from "../pages/Services";
+import ForgetPassword from "../pages/ForgetPassword";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/services",
+        element: <Services></Services>,
       },
       {
         path: "/services/:id",
@@ -32,6 +38,10 @@ const router = createBrowserRouter([
             <MyProfile></MyProfile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/forget-password",
+        element: <ForgetPassword />,
       },
       {
         path: "/login",
